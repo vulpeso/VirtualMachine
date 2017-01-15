@@ -1,2 +1,0 @@
-# VirtualMachine
-Student project
