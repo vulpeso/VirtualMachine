@@ -1,0 +1,31 @@
+# Project: VM
+# Makefile created by Dev-C++ 5.7.1
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o machine.o
+LINKOBJ  = main.o machine.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/mingw32/lib" -L"C:/OpenCV2.0/lib" -static-libstdc++ -static-libgcc -pg
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include" -I"C:/OpenCV2.0/include/opencv"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include/c++" -I"C:/OpenCV2.0/include/opencv"
+BIN      = VM.exe
+CXXFLAGS = $(CXXINCS) -pg -L "C:\OpenCV2.0\lib" -lcxcore200 -lcv200 -lhighgui200 -lml200 -lcvaux200 -lcxts200
+CFLAGS   = $(INCS) -pg -L "C:\OpenCV2.0\lib" -lcxcore200 -lcv200 -lhighgui200 -lml200 -lcvaux200 -lcxts200
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+machine.o: machine.cpp
+	$(CPP) -c machine.cpp -o machine.o $(CXXFLAGS)
