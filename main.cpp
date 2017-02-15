@@ -5,15 +5,18 @@
 bool DEBUG = false;
 
 int main(int argc, char *argv[]){
-	if(argc!=2) {
+	if(argc!=2 && argc!=3) {
 		printf("Usage: VM.exe filename\n");
 		return 0;
 	}
+	if(argc==3){ // third argument turns debugging on
+		DEBUG = true;
+	}
 	std::vector<int> code;
 	Parser::readFile(code, std::string(argv[1]));
-	Machine* m = Machine::getInstance();
-	m->readProgram(code);
-	m->run();
+	Machine* machine = Machine::getInstance();
+	machine->readProgram(code);
+	machine->run();
 	
 	return 0;
 }

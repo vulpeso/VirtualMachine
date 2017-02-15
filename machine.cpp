@@ -2,7 +2,7 @@
 				
 		/* prywatny konstruktor - to jest singleton */
 		Machine::Machine(){
-			isRunning = 1;
+			running = 1;
 			tm = ThreadMonitor::getInstance();
 		}
 		
@@ -16,12 +16,12 @@
 		}
 		void Machine::run(){
 			if(DEBUG) printf("Running Virtual Machine...\n");
-			while(isRunning)
+			while(running)
 			//for(int i = 0; i<20; i++)
 				tm->proceed();
 		}
 		void Machine::halt(){
-			isRunning = 0;
+			running = 0;
 		}
 		
 		
