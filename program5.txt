@@ -1,0 +1,13 @@
+label 0
+loadi 0 10
+loadi 1 1
+label 1
+sub 0 0 1
+jmpf 1 0
+exit
+
+start
+spawn 0 0
+join 0
+print 0
+halt

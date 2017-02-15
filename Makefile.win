@@ -1,17 +1,17 @@
 # Project: VM
-# Makefile created by Dev-C++ 5.7.1
+# Makefile created by Dev-C++ 5.11
 
-CPP      = g++.exe
-CC       = gcc.exe
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
-OBJ      = main.o machine.o
-LINKOBJ  = main.o machine.o
-LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/mingw32/lib" -L"C:/OpenCV2.0/lib" -static-libstdc++ -static-libgcc -pg
-INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include" -I"C:/OpenCV2.0/include/opencv"
-CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include/c++" -I"C:/OpenCV2.0/include/opencv"
+OBJ      = main.o machine.o task.o pmemory.o thread.o
+LINKOBJ  = main.o machine.o task.o pmemory.o thread.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -pg -g3
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
 BIN      = VM.exe
-CXXFLAGS = $(CXXINCS) -pg -L "C:\OpenCV2.0\lib" -lcxcore200 -lcv200 -lhighgui200 -lml200 -lcvaux200 -lcxts200
-CFLAGS   = $(INCS) -pg -L "C:\OpenCV2.0\lib" -lcxcore200 -lcv200 -lhighgui200 -lml200 -lcvaux200 -lcxts200
+CXXFLAGS = $(CXXINCS) -pg -g3
+CFLAGS   = $(INCS) -pg -g3
 RM       = rm.exe -f
 
 .PHONY: all all-before all-after clean clean-custom
@@ -29,3 +29,12 @@ main.o: main.cpp
 
 machine.o: machine.cpp
 	$(CPP) -c machine.cpp -o machine.o $(CXXFLAGS)
+
+task.o: task.cpp
+	$(CPP) -c task.cpp -o task.o $(CXXFLAGS)
+
+pmemory.o: pmemory.cpp
+	$(CPP) -c pmemory.cpp -o pmemory.o $(CXXFLAGS)
+
+thread.o: thread.cpp
+	$(CPP) -c thread.cpp -o thread.o $(CXXFLAGS)

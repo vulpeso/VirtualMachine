@@ -1,0 +1,6 @@
+start
+label 1
+jmpf 2 0
+spawn 0 1
+label 2
+halt
