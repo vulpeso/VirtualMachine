@@ -13,7 +13,7 @@
 class Register{
 	
 	private:
-		int registerTab [NUM_REGS];
+		int registerTab [NUM_REGS]; //zaleznie od architektury
 	
 	public:
 		Register(){
