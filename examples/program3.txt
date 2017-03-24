@@ -1,0 +1,26 @@
+label 1
+loadi 3 10
+label 4
+snd 0 3
+snd 0 0
+sub 3 3 1
+jmpf 4 3
+exit
+
+start 
+loadi 0 0
+loadi 1 1
+loadi 2 10
+spawn 7 1
+label 3
+rcv 5
+print 5
+jmpf 7 5
+jmp 3
+label 7
+sub 2 2 1
+jmpz 6 2
+jmp 3
+label 6
+print 2
+halt

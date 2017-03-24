@@ -1,0 +1,6 @@
+start 
+loadi 0 16
+loadi 1 9
+add 2 0 1
+print 2
+halt

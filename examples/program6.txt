@@ -1,0 +1,11 @@
+label 0
+rcv 2
+print 2
+exit
+
+start
+spawn 0 0
+loadi 5 15
+snd 0 5
+join 0
+halt
